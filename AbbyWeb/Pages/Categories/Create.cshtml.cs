@@ -3,12 +3,14 @@ using AbbyWeb.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 namespace AbbyWeb.Pages.Categories
 {
-    public class CreateModel : PageModel
+	[BindProperties] //this will help if we have 2 or more post methods.
+	public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
-        [BindProperty]
+        
         public Category Category { get; set; }
 
         public CreateModel(ApplicationDbContext db)
